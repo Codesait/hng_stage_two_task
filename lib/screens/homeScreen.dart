@@ -16,10 +16,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String name = 'Uzoma Wisdom Cheiemela';
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String? userName;
-  String? age;
-  String? stack;
-  String? bio;
+ late String userName;
+ late String age;
+ late String stack;
+ late String bio;
 
 
   @override
@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     const Text(
                       'Please tell us a little bit about YourSelf.',
+                      style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(height: 15.0,),
 

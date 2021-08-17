@@ -76,8 +76,10 @@ class _InputFormState extends State<InputForm> {
                 color: Colors.deepPurpleAccent
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(
+                color: Colors.purple,
+              ),
             ),
 
           ),
