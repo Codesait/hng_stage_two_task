@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class AbitInputForm extends StatefulWidget {
-  const AbitInputForm({
+class InputForm extends StatefulWidget {
+  const InputForm({
     Key? key,
     required this.onSaved,
     this.color,
@@ -22,10 +22,10 @@ class AbitInputForm extends StatefulWidget {
   final Widget? suffix;
 
   @override
-  _AbitInputFormState createState() => _AbitInputFormState();
+  _InputFormState createState() => _InputFormState();
 }
 
-class _AbitInputFormState extends State<AbitInputForm> {
+class _InputFormState extends State<InputForm> {
 
   @override
   Widget build(BuildContext context) {
