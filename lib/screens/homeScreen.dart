@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stage_two_hng_task/screens/profile.dart';
+import 'package:stage_two_hng_task/widgets/bottomSheet.dart';
 import 'package:stage_two_hng_task/widgets/button.dart';
 import 'package:stage_two_hng_task/widgets/input_form.dart';
 
@@ -16,10 +17,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String name = 'Uzoma Wisdom Cheiemela';
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
- late String userName;
- late String age;
- late String stack;
- late String bio;
+  String userName = '';
+  String age = '';
+  String stack = '';
+  String bio = '';
 
 
   @override
@@ -39,68 +40,94 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SingleChildScrollView(
-
-        // form
-        child: Form(
+      body:  Form(
           key: _formKey,
           child: Container(
             height: size.height,
             width: size.width,
             padding: const EdgeInsets.all(20.0),
-            child:  Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    // logo
-                    Image.asset(
-                      'assets/images/hng_logo.png',
-                      height: 200,
-                      width: size.width/1.8,
-                    ),
+            child:  SingleChildScrollView(
+              child: Column(
+                    children: <Widget>[
+                      // logo
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/images/hng_logo.png',
 
-                    const Text(
-                      'Please tell us a little bit about YourSelf.',
-                      style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(height: 15.0,),
+                            width: size.width/1.8,
+                          ),
+                          const SizedBox(width: 10),
+                          Container(
+                            height: 50,
+                            width: 50,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.0),
+                              color: Theme.of(context).primaryColor
+                            ),
+                            child: Center(
+                              child: IconButton(
+                                icon: Icon(Icons.link),
+                                color: Colors.white,
+                                tooltip: 'click to view sponsors',
+                                onPressed: (){
+                                  Sheet.showSheet(context);
+                                },
+                                iconSize: 16,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 55.0,),
+
+                      const Text(
+                        'Please tell us a little bit about YourSelf.',
+                        style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(height: 15.0,),
 
 
-                    nameInputForm(),
-                    const SizedBox(height: 7.0,),
+                      nameInputForm(),
+                      const SizedBox(height: 7.0,),
 
-                    ageInputForm(),
-                    const SizedBox(height: 7.0,),
+                      ageInputForm(),
+                      const SizedBox(height: 7.0,),
 
-                    stackInputForm(),
-                    const SizedBox(height: 7.0,),
+                      stackInputForm(),
+                      const SizedBox(height: 7.0,),
 
-                    bioInputForm(),
-                    const SizedBox(height: 15.0,),
+                      bioInputForm(),
+                      const SizedBox(height: 15.0,),
 
 
-                   new CustomButton(
-                      fixedSize: Size(size.width,50.0),
-                      child: Text('Submit'),
-                      onClicked: (){
-                        if (validateForm()){
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (context) => Profile(
-                                userName: userName,
-                                age: age,
-                                stack: stack,
-                                bio: bio,
-
-                              ))
-                          );
+                     new CustomButton(
+                        fixedSize: Size(size.width,50.0),
+                        child: Text('Submit'),
+                        onClicked: (){
+                          if (validateForm()){
+                            print(_formKey.currentState!.validate());
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => Profile(
+                                  userName: userName,
+                                  age: age,
+                                  stack: stack,
+                                  bio: bio,
+                                ))
+                            );
+                          }
                         }
-                      }
-                    )
+                      )
 
-                  ],
-                ),
+                    ],
+                  ),
+            ),
               ),
             ),
-        ),
+      
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

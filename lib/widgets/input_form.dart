@@ -85,7 +85,7 @@ class _InputFormState extends State<InputForm> {
           ),
           onSaved: widget.onSaved,
           validator: (value) {
-            if(value == null) {
+            if(value!.length == 0) {
               return 'Field cannot be empty';
             }
             return null;

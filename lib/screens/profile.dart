@@ -21,56 +21,56 @@ class Profile extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
+        child:  Container(
             padding: const EdgeInsets.all(20.0),
             height: size.height,
             width: size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // avatar widget
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/images/avatar.jpeg'
-                      )
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // avatar widget
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          'assets/images/avatar.jpeg'
+                        )
+                      ),
+                      borderRadius: BorderRadius.circular(15.0)
                     ),
-                    borderRadius: BorderRadius.circular(15.0)
                   ),
-                ),
-                const SizedBox(height: 25.0),
+                  const SizedBox(height: 25.0),
 
-                // name
-                listTile(leadingText: 'Name', value: userName),
+                  // name
+                  listTile(leadingText: 'Name', value: userName),
 
-                // age
-                listTile(leadingText: 'Age', value: age),
+                  // age
+                  listTile(leadingText: 'Age', value: age),
 
-                // stack
-                listTile(leadingText: 'Stack', value: stack),
+                  // stack
+                  listTile(leadingText: 'Stack', value: stack),
 
-                // bio
-                listTile(leadingText: 'Bio', value: bio),
-                const SizedBox(height: 25.0),
+                  // bio
+                  listTile(leadingText: 'Bio', value: bio),
+                  const SizedBox(height: 25.0),
 
-                new CustomButton(
-                    fixedSize: Size(size.width,50.0),
-                    child: Text('Edit Profile'),
-                    onClicked: (){
-                      Navigator.pop(context);
-                    }
-                )
+                  new CustomButton(
+                      fixedSize: Size(size.width,50.0),
+                      child: Text('Edit Profile'),
+                      onClicked: (){
+                        Navigator.pop(context);
+                      }
+                  )
 
-              ],
+                ],
+              ),
             ),
           ),
-        ),
       ),
     );
   }
