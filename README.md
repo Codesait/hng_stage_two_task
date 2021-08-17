@@ -2,6 +2,8 @@
 
 Here is my stage two hng internship task
 
+<img src="https://media.giphy.com/media/HWNMNwXCsuQ4DQ0XPu/giphy.gif" width="200" height="400" />
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
