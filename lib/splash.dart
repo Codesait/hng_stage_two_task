@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// will navigate to home screen after 2 seconds
   startTimer(){
-    Timer(Duration(seconds: 2), navigator);
+    Timer(Duration(seconds: 3), navigator);
   }
 
   /// navigator methode
@@ -37,10 +37,36 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         height: size.height,
         width: size.width,
-        child: Center(
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+            children: [
 
+              Image.asset(
+                'assets/images/hng_logo.png',
+                height: 200,
+                width: size.width/1.8,
+              ),
+              const SizedBox(height: 50),
+
+              Text(
+                'Partners with',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 4
+                ),
+              ),
+              const SizedBox(height: 5),
+
+              Image.asset(
+                'assets/images/zuri_training.png',
+
+                width: size.width/1.8,
+              ),
+
+            ],
+          ),
         ),
-      ),
+
     );
   }
 }
