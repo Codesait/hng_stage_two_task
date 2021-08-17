@@ -22,7 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String stack = '';
   String bio = '';
 
-
   @override
   void initState() {
     _printName();
@@ -40,113 +39,119 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body:  Form(
-          key: _formKey,
-          child: Container(
-            height: size.height,
-            width: size.width,
-            padding: const EdgeInsets.all(20.0),
-            child:  SingleChildScrollView(
-              child: Column(
-                    children: <Widget>[
-                      // logo
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/images/hng_logo.png',
-
-                            width: size.width/1.8,
-                          ),
-                          const SizedBox(width: 10),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100.0),
-                              color: Theme.of(context).primaryColor
-                            ),
-                            child: Center(
-                              child: IconButton(
-                                icon: Icon(Icons.link),
-                                color: Colors.white,
-                                tooltip: 'click to view sponsors',
-                                onPressed: (){
-                                  Sheet.showSheet(context);
-                                },
-                                iconSize: 16,
+      body: Form(
+        key: _formKey,
+        child: Container(
+          height: size.height,
+          width: size.width,
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                // logo
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/hng_logo.png',
+                      width: size.width / 1.8,
+                    ),
+                    const SizedBox(height: 20),
+                     TextButton(
+                        onPressed: () => Sheet.showSheet(context),
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.link,
+                                color: Colors.purpleAccent,
                               ),
-                            ),
-                          )
-                        ],
+                              const SizedBox(width: 5),
+                              Text(
+                                'see all sponsors',
+                                style: TextStyle(color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
-                      const SizedBox(height: 55.0,),
+                  ],
+                ),
+                const SizedBox(
+                  height: 55.0,
+                ),
 
-                      const Text(
-                        'Please tell us a little bit about YourSelf.',
-                        style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 15.0,),
+                const Text(
+                  'Please tell us a little bit about YourSelf.',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(
+                  height: 15.0,
+                ),
 
+                nameInputForm(),
+                const SizedBox(
+                  height: 7.0,
+                ),
 
-                      nameInputForm(),
-                      const SizedBox(height: 7.0,),
+                ageInputForm(),
+                const SizedBox(
+                  height: 7.0,
+                ),
 
-                      ageInputForm(),
-                      const SizedBox(height: 7.0,),
+                stackInputForm(),
+                const SizedBox(
+                  height: 7.0,
+                ),
 
-                      stackInputForm(),
-                      const SizedBox(height: 7.0,),
+                bioInputForm(),
+                const SizedBox(
+                  height: 15.0,
+                ),
 
-                      bioInputForm(),
-                      const SizedBox(height: 15.0,),
-
-
-                     new CustomButton(
-                        fixedSize: Size(size.width,50.0),
-                        child: Text('Submit'),
-                        onClicked: (){
-                          if (validateForm()){
-                            print(_formKey.currentState!.validate());
-                            Navigator.push(context, MaterialPageRoute(
+                new CustomButton(
+                    fixedSize: Size(size.width, 50.0),
+                    child: Text('Submit'),
+                    onClicked: () {
+                      if (validateForm()) {
+                        print(_formKey.currentState!.validate());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
                                 builder: (context) => Profile(
-                                  userName: userName,
-                                  age: age,
-                                  stack: stack,
-                                  bio: bio,
-                                ))
-                            );
-                          }
-                        }
-                      )
+                                      userName: userName,
+                                      age: age,
+                                      stack: stack,
+                                      bio: bio,
+                                    )));
+                      }
+                    })
+              ],
+            ),
+          ),
+        ),
+      ),
 
-                    ],
-                  ),
-            ),
-              ),
-            ),
-      
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-
   // checking form validations
-  bool validateForm(){
+  bool validateForm() {
     final form = _formKey.currentState;
     bool validated = false;
     if (form!.validate() == true) {
-     form.save();
+      form.save();
       validated = true;
     }
     return validated;
   }
 
-  Widget nameInputForm(){
+  Widget nameInputForm() {
     return InputForm(
-      onSaved: (val){
+      onSaved: (val) {
         userName = val;
       },
       inputType: TextInputType.name,
@@ -155,20 +160,20 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget ageInputForm(){
+  Widget ageInputForm() {
     return InputForm(
-      onSaved: (val){
+      onSaved: (val) {
         age = val.toString();
-        },
+      },
       inputType: TextInputType.number,
       label: 'Age',
       hintText: 'e.g 12',
     );
   }
 
-  Widget stackInputForm(){
+  Widget stackInputForm() {
     return InputForm(
-      onSaved: (val){
+      onSaved: (val) {
         stack = val;
       },
       inputType: TextInputType.number,
@@ -177,9 +182,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget bioInputForm(){
+  Widget bioInputForm() {
     return InputForm(
-      onSaved: (val){
+      onSaved: (val) {
         bio = val;
       },
       inputType: TextInputType.number,
@@ -188,5 +193,4 @@ class _MyHomePageState extends State<MyHomePage> {
       maxLines: 7,
     );
   }
-
 }

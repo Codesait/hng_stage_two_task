@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ModalItem extends StatelessWidget {
   const ModalItem({Key? key,
@@ -13,9 +14,7 @@ class ModalItem extends StatelessWidget {
     return Card(
       elevation: 8,
       child: InkWell(
-        onTap: (){
-
-        },
+        onTap: ()=>_launchURL(link),
         child: Container(
           height: 50,
           width: MediaQuery.of(context).size.width,
@@ -27,5 +26,11 @@ class ModalItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _launchURL(url) async {
+    await canLaunch(url) 
+        ? await launch(url) 
+        : throw 'Could not launch $url';
   }
 }

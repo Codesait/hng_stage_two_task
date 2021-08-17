@@ -29,11 +29,11 @@ class Sheet{
                const SizedBox(height: 20),
 
                ModalItem(
-                 link: '',
+                 link: 'https://internship.zuri.team',
                  label: 'HNG INTERNSHIP 8'
                ),
               ModalItem(
-                  link: '',
+                  link: 'https://zuri.team',
                   label: 'Zuri Team'
               )
             ],
