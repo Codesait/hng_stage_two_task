@@ -48,9 +48,9 @@ class _InputFormState extends State<InputForm> {
           textInputAction: TextInputAction.done,
           maxLines: widget.maxLines ?? 1,
           style: TextStyle(
-              color: Colors.grey,
-              fontSize: 16,
-              fontWeight: FontWeight.w600
+              color: Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.w400
           ),
           decoration: InputDecoration(
             fillColor: widget.color,
