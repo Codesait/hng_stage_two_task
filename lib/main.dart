@@ -3,6 +3,7 @@ import 'package:stage_two_hng_task/Constants/constants.dart';
 import 'package:stage_two_hng_task/compulsory_task/namePrinterFunction.dart';
 import 'package:stage_two_hng_task/screens/splash.dart';
 
+
 void main() {
   runApp(MyApp());
   CompulsoryTask.printName();

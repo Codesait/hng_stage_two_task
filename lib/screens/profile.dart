@@ -20,11 +20,13 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child:  Container(
+      appBar: AppBar(title: Text('Profile'),backgroundColor: Colors.green,),
+      backgroundColor: Colors.grey[100],
+      body: Container(
             padding: const EdgeInsets.all(20.0),
             height: size.height,
             width: size.width,
+            alignment: Alignment.center,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,21 +49,19 @@ class Profile extends StatelessWidget {
                   const SizedBox(height: 25.0),
 
                   // name
-                  listTile(leadingText: 'Name', value: userName),
-
-                  // age
-                  listTile(leadingText: 'Age', value: age),
+                  listTile(iconData: Icons.person_outline_rounded, iconColor: Colors.green, value: userName),
 
                   // stack
-                  listTile(leadingText: 'Stack', value: stack),
+                  listTile(iconData: Icons.work_outline_rounded, iconColor: Colors.purple, value: stack),
 
                   // bio
-                  listTile(leadingText: 'Bio', value: bio),
+                  listTile(iconData: Icons.account_box_outlined, iconColor: Colors.deepPurpleAccent, value: bio),
                   const SizedBox(height: 25.0),
 
                   new CustomButton(
                       fixedSize: Size(size.width,50.0),
                       child: Text('Edit Profile'),
+                      radius: 10,
                       onClicked: (){
                         Navigator.pop(context);
                       }
@@ -71,24 +71,29 @@ class Profile extends StatelessWidget {
               ),
             ),
           ),
-      ),
     );
   }
 
-  Widget listTile({required String leadingText, required String value}){
+  Widget listTile({required IconData iconData,required Color iconColor, required String value}){
     return Card(
+      clipBehavior: Clip.hardEdge,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)
+        borderRadius: BorderRadius.circular(20.0)
       ),
-      child: ListTile(
-        
-        leading: Text(
-          '$leadingText:',
-          style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
-        ),
-        title: Text(
-          value,
-          style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
+      child: Container(
+        height: 30,
+        margin: const EdgeInsets.all(8.0),
+        child:Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(iconData,size: 20,color: iconColor,),
+            SizedBox(width: 20.0,),
+            Text(
+              value,
+              style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
+            ),
+          ],
         ),
       ),
     );

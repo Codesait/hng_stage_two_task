@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stage_two_hng_task/screens/profile.dart';
+import 'package:stage_two_hng_task/widgets/banner.dart';
 import 'package:stage_two_hng_task/widgets/bottomSheet.dart';
 import 'package:stage_two_hng_task/widgets/button.dart';
 import 'package:stage_two_hng_task/widgets/input_form.dart';
@@ -44,59 +45,27 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           height: size.height,
           width: size.width,
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0,),
+          margin: const EdgeInsets.symmetric(vertical: 20.0),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 // logo
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/hng_logo.png',
-                      width: size.width / 1.8,
-                    ),
-                    const SizedBox(height: 20),
-                     TextButton(
-                        onPressed: () => Sheet.showSheet(context),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.link,
-                                color: Colors.purpleAccent,
-                              ),
-                              const SizedBox(width: 5),
-                              Text(
-                                'see all sponsors',
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
+                CustomBanner(size: size),
+
                 const SizedBox(
-                  height: 55.0,
+                  height: 25.0,
                 ),
 
                 const Text(
                   'Please tell us a little bit about YourSelf.',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(
                   height: 15.0,
                 ),
 
                 nameInputForm(),
-                const SizedBox(
-                  height: 7.0,
-                ),
-
-                ageInputForm(),
                 const SizedBox(
                   height: 7.0,
                 ),
@@ -114,6 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 new CustomButton(
                     fixedSize: Size(size.width, 50.0),
                     child: Text('Submit'),
+                    color: Colors.green,
+                    radius: 10,
                     onClicked: () {
                       if (validateForm()) {
                         print(_formKey.currentState!.validate());
@@ -157,19 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
       inputType: TextInputType.name,
       label: 'Name',
       hintText: 'e.g Chiemela Uzoma',
+      color: Colors.green.withOpacity(0.1),
     );
   }
 
-  Widget ageInputForm() {
-    return InputForm(
-      onSaved: (val) {
-        age = val.toString();
-      },
-      inputType: TextInputType.number,
-      label: 'Age',
-      hintText: 'e.g 12',
-    );
-  }
 
   Widget stackInputForm() {
     return InputForm(
@@ -179,6 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
       inputType: TextInputType.number,
       label: 'Dev Stack',
       hintText: 'Mobile Development',
+      color: Colors.green.withOpacity(0.1),
     );
   }
 
@@ -190,7 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
       inputType: TextInputType.number,
       label: 'Bio',
       hintText: 'e.g I am a detail oriented mobile developer.',
-      maxLines: 7,
+      maxLines: 5,
+      color: Colors.green.withOpacity(0.1),
     );
   }
 }

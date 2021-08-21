@@ -35,7 +35,9 @@ class Sheet{
               ModalItem(
                   link: 'https://zuri.team',
                   label: 'Zuri Team'
-              )
+              ),
+
+
             ],
           ),
         );
