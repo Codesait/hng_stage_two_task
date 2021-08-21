@@ -8,7 +8,7 @@ h
 
 Here is my stage two hng internship task
 
-<img src="ttps://user-images.githubusercontent.com/37216036/130336763-99958610-ce5a-4ada-84f8-1098445623ab.mov" width="200" height="400" />
+<img src="https://media.giphy.com/media/mZVSovEJOJokEX9z0y/giphy.gif" width="200" height="400" /> <img src="https://media.giphy.com/media/BjJA0PpZ1v4Bs28iBA/giphy.gif" width="200" height="400" />
 
 
 
