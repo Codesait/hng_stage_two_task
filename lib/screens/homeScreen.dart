@@ -85,7 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 const Text(
                   'Please tell us a little bit about YourSelf.',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    color: Colors.black
+                  ),
                 ),
                 const SizedBox(
                   height: 15.0,
