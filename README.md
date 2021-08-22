@@ -21,6 +21,8 @@ https://github.com/Codesait/wallify
 
 Flip clock
 
+https://github.com/Codesait/Animated_Flip_Clock
+
 https://user-images.githubusercontent.com/37216036/130337960-91009932-5b4c-41e4-be68-df9c6506dfdf.mov
 
 
